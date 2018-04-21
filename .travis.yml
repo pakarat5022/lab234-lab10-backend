@@ -1,4 +1,5 @@
 language: java
+sudo: required
 before_install:
 - sudo rm /usr/local/bin/docker-compose
 - curl -L https://github.com/docker/compode/releases/download/1.20.1/docker-compose-`uname
@@ -14,7 +15,7 @@ install:
 - docker push 592115022/se234-lab10-backend
 - docker pull 592115022/se234-lab10-client
 script:
-- docker-compose -H "$DOCKER_HOST" up -d
+- docker-compose -H "tcp://54.149.139.47:5022 " up -d
 cache:
   directories:
   - "$HOME/.m2"
