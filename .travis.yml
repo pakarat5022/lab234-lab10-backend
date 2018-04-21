@@ -6,13 +6,13 @@ before_install:
   -s`-`uname -m` > docker-compose
 - chmod +x docker-compose
 - sudo mv docker-compose /usr/local/bin
-- docker login -u "592115022" -p "$DOCKER_PASSWORD"
+- docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 install:
 - mvn install -Dmaven.javadoc.skip=true -B -V
 - ls -l
-- docker build --build-arg JAR_FILE=/target/backend.jar -t 592115022/se234-lab10-backend  .
-- docker push 592115022/se234-lab10-backend
-- docker pull 592115022/se234-lab10-client
+- docker build --build-arg JAR_FILE=/target/backend.jar -t $DOCKER_USERNAME/se234-lab10-backend  .
+- docker push $DOCKER_USERNAME/se234-lab10-backend
+- docker pull $DOCKER_USERNAME/se234-lab10-client
 script:
 - docker-compose -H "tcp://54.149.139.47:5022" up
 cache:
