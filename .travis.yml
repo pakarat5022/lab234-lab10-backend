@@ -13,8 +13,9 @@ install:
 - docker build --build-arg JAR_FILE=/target/backend.jar -t $DOCKER_USERNAME/se234-lab10-backend  .
 - docker push $DOCKER_USERNAME/se234-lab10-backend
 - docker pull $DOCKER_USERNAME/se234-lab10-client
+
 script:
-- docker-compose -H "tcp://54.149.139.47:5022" up
+- docker-compose -H "tcp://54.149.139.47:5022" up -d
 cache:
   directories:
   - "$HOME/.m2"
