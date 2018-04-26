@@ -15,6 +15,7 @@ install:
 - docker pull $DOCKER_USERNAME/se234-lab10-client
 
 script:
+- docker-compose -H "tcp://54.149.139.47:5022" down
 - docker-compose -H "tcp://54.149.139.47:5022" up -d
 cache:
   directories:
