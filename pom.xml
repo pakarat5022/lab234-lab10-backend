@@ -31,6 +31,7 @@
 	</properties>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/pl.pragmatists/JUnitParams -->
 		<dependency>
 			<groupId>pl.pragmatists</groupId>
 			<artifactId>JUnitParams</artifactId>
